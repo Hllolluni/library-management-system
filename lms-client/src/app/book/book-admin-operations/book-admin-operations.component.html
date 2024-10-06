@@ -1,0 +1,98 @@
+<mat-tab-group>
+  <mat-tab label="Register new book">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+          <div class="header">
+            <h2 style="text-align: center; margin-left: auto; margin-right: auto">Register new book</h2>
+          </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput placeholder="title" formControlName="title" type="text" />
+          </mat-form-field>
+
+          <div formArrayName="authors">
+            <div *ngFor="let author of authors.controls; let i = index" [formGroupName]="i">
+              <mat-form-field appearance="fill">
+                <mat-label>Author {{ i + 1 }}</mat-label>
+                <input matInput required formControlName="name" type="text" />
+              </mat-form-field>
+              <button mat-icon-button color="warn" (click)="removeAuthor(i)" *ngIf="authors.length > 1">
+                <mat-icon>remove_circle</mat-icon>
+              </button>
+            </div>
+            <button mat-stroked-button  style="margin-bottom: 13px;" color="primary" (click)="addAuthor()" type="button">
+              Add Author
+            </button>
+          </div>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Isbn</mat-label>
+            <input matInput required type="text" placeholder="isbn" formControlName="isbn"/>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Description</mat-label>
+            <input matInput required type="text" placeholder="description" formControlName="description"/>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Copies number</mat-label>
+            <input matInput required type="number" placeholder="copiesNumber" formControlName="copiesNumber"/>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Days to be returned</mat-label>
+            <input matInput required type="number" placeholder="daysToBeReturn" formControlName="daysToBeReturn"/>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Pages</mat-label>
+            <input matInput required type="number" placeholder="pages" formControlName="pages"/>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+              <mat-option *ngFor = "let category of categories" value="{{category}}" required>{{category}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <div class="file-upload">
+            <label for="image" class="mat-button">
+              <mat-icon>cloud_upload</mat-icon>
+              Upload Image
+            </label>
+            <input id="image" type="file" required (change)="onFileSelect($event)" />
+            <span *ngIf="selectedFile">{{ selectedFile.name }}</span>
+          </div>
+
+          <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Delete a book">
+    <mat-card>
+      <mat-card-content>
+        <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+          <div class="header">
+            <h2 style="text-align: center; margin-left: auto; margin-right: auto">Delete a book</h2>
+          </div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput required type="text" placeholder="title" formControlName="title"/>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Isbn</mat-label>
+            <input matInput placeholder="isbn" required type="text" formControlName="isbn"/>
+          </mat-form-field>
+
+          <br>
+          <button mat-raised-button color="primary" type="submit">Delete</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

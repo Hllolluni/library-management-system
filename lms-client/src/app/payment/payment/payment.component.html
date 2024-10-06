@@ -1,0 +1,78 @@
+<mat-card class="mat-card">
+  <mat-card-title>
+    <h2 class="mat-headline"><b>Payment method</b></h2>
+  </mat-card-title>
+  <mat-card-content>
+    <div class="payment-type-container">
+      <img class="payment-logo" src="https://res.cloudinary.com/ffdc/image/upload/v1593768892/cards_logos_drnu5h.png">
+    </div>
+    <form (ngSubmit)="chargeCreditCard()" [formGroup]="paymentForm">
+      <div class="card-form-container">
+        <div>
+          <mat-form-field appearance="fill" dense class="example-full-width">
+            <mat-icon matPrefix dense color="primary">payment</mat-icon>
+            <mat-label>Card number</mat-label>
+            <input formControlName="cardNumber" matInput #input maxlength="16" placeholder="Enter card number" />
+            <mat-hint align="end">{{ input.value.length || 0 }}/16</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field  dense appearance="fill" class="example-full-width">
+            <mat-icon color="primary" dense matPrefix>person_outline</mat-icon>
+            <mat-label>Name</mat-label>
+            <input formControlName="name" type="text" matInput value="Gregg Wicks"/>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-form-field class="expire-month" dense>
+        <mat-label>Month</mat-label>
+        <select matNativeControl formControlName="month">
+          <option name="january">01</option>
+          <option name="february">02</option>
+          <option name="march">03</option>
+          <option name="april">04</option>
+          <option name="may">05</option>
+          <option name="june">06</option>
+          <option name="july">07</option>
+          <option name="august">08</option>
+          <option name="september">09</option>
+          <option name="october">10</option>
+          <option name="november">11</option>
+          <option name="december">12</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field class="expire-month" dense>
+        <mat-label>Year</mat-label>
+        <select matNativeControl formControlName="year">
+          <option>2024</option>
+          <option>2025</option>
+          <option>2026</option>
+          <option>2027</option>
+          <option>2028</option>
+          <option>2029</option>
+          <option>2030</option>
+          <option>2031</option>
+          <option>2032</option>
+          <option>2033</option>
+          <option>2034</option>
+          <option>2035</option>
+          <option>2036</option>
+          <option>2037</option>
+          <option>2038</option>
+          <option>2039</option>
+          <option>2040</option>
+        </select>
+      </mat-form-field>
+      <mat-form-field dense appearance="fill">
+        <mat-icon color="primary" matSuffix dense>help_outline</mat-icon>
+        <mat-label>CVC</mat-label>
+        <input type="text" formControlName="cvc" matInput />
+        <mat-hint>Behind your card</mat-hint>
+      </mat-form-field>
+      <div style="justify-content: center; display: flex">
+        <button mat-flat-button color="primary" style="margin: auto; text-align: center; width: fit-content">Send</button>
+      </div>
+    </form>
+  </mat-card-content>
+
+</mat-card>

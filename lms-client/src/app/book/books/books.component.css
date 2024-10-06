@@ -1,0 +1,28 @@
+.book-class{
+  margin: 0.6%;
+  max-width: 280px;
+  height: 330px;
+}
+
+.content-class{
+  height: 69px;
+  width: fit-content;
+  display: block;
+}
+
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.container >*{
+  flex: 1 1 280px;
+}
+
+img{
+  height: 190px;
+  width: 280px;
+}

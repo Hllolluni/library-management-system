@@ -1,0 +1,29 @@
+<table mat-table [dataSource]="reservations" class="mat-elevation-z8 demo-table">
+  <ng-container matColumnDef="Book Title">
+    <th mat-header-cell *matHeaderCellDef> Book Title </th>
+    <td mat-cell *matCellDef="let element"> {{element.bookTitle}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="First Name">
+    <th mat-header-cell *matHeaderCellDef> First Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Last Name">
+    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    (click)="this.onRowClicked(row)"
+    [class.demo-row-is-clicked]="clickedRows.has(row)"
+    *matRowDef="let row; columns: displayedColumns;"
+  ></tr>
+</table>
+
+<div style="justify-content: center; display: flex; margin-top: 20px;">
+  <button mat-flat-button color="primary" (click)="setCompleted()">Complete</button>
+</div>

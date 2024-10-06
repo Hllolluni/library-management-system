@@ -1,0 +1,32 @@
+img {
+  height: 600px;
+  width: 600px;
+  border: 2px solid black;
+}
+
+.overview {
+  display: flex;
+}
+
+.book-details {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.plain-centered {
+  text-align: left;
+  margin: 0 auto !important;
+}
+
+.borrow-btn {
+  border-radius: 100px;
+}
+
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 50px;
+}

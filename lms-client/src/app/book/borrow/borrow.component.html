@@ -1,0 +1,7 @@
+<div class="dialog-style">
+  <p style="text-align: center">{{question}}</p>
+  <div class="buttons">
+    <button mat-flat-button color="primary" (click)="borrowReq()" *ngIf="!borrowed">Borrow</button>
+    <button mat-button color="primary" mat-dialog-close>Cancel</button>
+  </div>
+</div>

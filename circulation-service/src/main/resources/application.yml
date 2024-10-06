@@ -1,0 +1,27 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: circulation-service
+  datasource:
+    username: password
+    password: password
+    url: jdbc:postgresql://localhost:5432/circulation
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 50
+          batch_versioned_data: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        order_updates: true
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer

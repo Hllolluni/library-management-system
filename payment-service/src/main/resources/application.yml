@@ -1,0 +1,22 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: payment-service
+  data:
+    mongodb:
+      uri: mongodb://username:password@localhost:27017/payment?authSource=admin
+
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+
+stripe:
+  api:
+    secretKey: secret
+    amount: 15

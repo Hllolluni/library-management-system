@@ -1,0 +1,76 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: book-service
+          uri: lb://BOOK-SERVICE
+          predicates:
+            - Path=/api/category/**
+          filters:
+            - AuthenticationFilter
+        - id: book-service
+          uri: lb://BOOK-SERVICE
+          predicates:
+            - Path=/api/authors/**
+          filters:
+            - AuthenticationFilter
+        - id: book-service
+          uri: lb://BOOK-SERVICE
+          predicates:
+            - Path=/api/books/**
+          filters:
+            - AuthenticationFilter
+        - id: book-service
+          uri: lb://BOOK-SERVICE
+          predicates:
+            - Path=/api/classification/**
+          filters:
+            - AuthenticationFilter
+        - id: circulation-service
+          uri: lb://CIRCULATION-SERVICE
+          predicates:
+            - Path=/api/reader/**
+          filters:
+            - AuthenticationFilter
+        - id: circulation-service
+          uri: lb://CIRCULATION-SERVICE
+          predicates:
+            - Path=/api/borrow/**
+          filters:
+            - AuthenticationFilter
+
+        - id: mail-service
+          uri: lb://MAIL-SERVICE
+          predicates:
+            - Path=/api/mail/**
+          filters:
+            - AuthenticationFilter
+
+        - id: payment-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/api/payment/**
+          filters:
+            - AuthenticationFilter
+
+        - id: security-service
+          uri: lb://SECURITY-SERVICE
+          predicates:
+            - Path=/api/auth/**
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Origin, RETAIN_UNIQUE
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka-server:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+jwt:
+  secret-key: secret

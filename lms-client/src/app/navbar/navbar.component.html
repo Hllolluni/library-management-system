@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>Library</div>
+  <div>
+    <button mat-button [matMenuTriggerFor]="firstLevel">Books</button>
+    <mat-menu #firstLevel="matMenu">
+      <ng-container *ngFor="let classification of classifications">
+        <button mat-menu-item  [matMenuTriggerFor]="secondLevel">{{classification.name}}</button>
+        <mat-menu #secondLevel="matMenu">
+          <button *ngFor="let category of classification.categories" mat-menu-item (click)="navigateTo('book', category)">{{ category }}</button>
+        </mat-menu>
+      </ng-container>
+    </mat-menu>
+    <a mat-button routerLink="payment">Payment</a>
+    <a mat-button routerLink="reservations" *ngIf="this.authService.isAdmin()">Reservations</a>
+    <a mat-button routerLink="aboutus">About Us</a>
+    <a mat-button routerLink="register" (click)="logout()">Log out</a>
+  </div>
+</mat-toolbar>

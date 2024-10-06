@@ -1,0 +1,38 @@
+mat-card {
+  max-width: 600px;
+  margin: 2em auto;
+  text-align: center;
+  max-height: 800px;
+  background: floralwhite;
+}
+
+.header{
+  text-align: center;
+}
+
+.firstNameInput{
+  padding-top: 10px;
+}
+
+.full-width {
+  width: 80%;
+}
+
+.aLink{
+  float: right;
+  padding-right: 60px;
+  text-decoration: none;
+}
+
+.button-row {
+  padding-top: 5px;
+}
+
+.button-row a {
+  margin-right: 8px;
+  text-align: center;
+}
+
+.login-link {
+  margin-top: 10px;
+}

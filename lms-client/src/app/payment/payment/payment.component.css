@@ -1,0 +1,44 @@
+.example-full-width {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.mat-card {
+  padding: 20px;
+  width: 450px;
+  height: 500px;
+  margin: 2em auto;
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+
+  .payment-type-container {
+    margin-bottom: 0;
+
+    .mat-radio-button {
+      margin-right: 0;
+    }
+
+    .payment-logo {
+      width: 90px;
+      margin-left: 0;
+    }
+  }
+
+  .mat-card-content {
+    margin-bottom: 0;
+
+    .card-form-container {
+      max-width: 419px;
+      min-width: 200px;
+    }
+  }
+
+  .expire-month {
+    width: 110px;
+    margin-right: 5px;
+  }
+}

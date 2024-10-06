@@ -1,0 +1,51 @@
+mat-card {
+  max-width: 800px;
+  margin: 2em auto;
+  text-align: center;
+  align-items: center;
+}
+mat-tab-group{
+  background: white;
+}
+
+.file-upload {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.delete {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+.register {
+  position: absolute;
+  left: 0;
+  margin-left: 10px;
+}
+
+.file-upload label {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload span {
+  font-size: 14px;
+  color: #757575;
+}
+
+.full-width {
+  width: 80%;
+}

@@ -1,0 +1,30 @@
+server:
+  port: 9898
+
+spring:
+  application:
+    name: security-service
+  datasource:
+    username: username
+    password: password
+    url: jdbc:postgresql://localhost:5432/authentication
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true
+
+jwt:
+  secret-key: secret
+  expirationInMillis: 3600000
+  expirationRefreshInMillis: 4200000
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    fetch-registry: true
+    register-with-eureka: true
